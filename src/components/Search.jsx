@@ -1,8 +1,8 @@
 import axios from "axios"
 import { URL } from "../globals"
 
-const RandomItem = (props) => {
+const Search = (props) => {
   
 }
 
-export default RandomItem
+export default Search
