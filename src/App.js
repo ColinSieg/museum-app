@@ -22,11 +22,12 @@ function App() {
         {displayItem ? (
           <RandomItem displayItem={displayItem} />
         ) : (
-          'Click above for a new item'
+          <h2>Click above to view a random item from the Met!</h2>
         )}
         <RandomImage />
       </div>
-      <div className="inputContainer">
+      <h2>Or start from the beginning of the collection!</h2>
+      <div className="infoPanel">
         <IncrementButton />
       </div>
     </div>
