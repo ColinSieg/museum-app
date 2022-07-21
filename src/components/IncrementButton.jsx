@@ -1,9 +1,10 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { URL } from '../globals'
 
 const IncrementButton = (props) => {
   const [objID, setObjectID] = useState(1)
+  const [newURL, setNewURL] = useState('')
 
   if(objID <= 0) {
     setObjectID(1)
@@ -17,14 +18,16 @@ const IncrementButton = (props) => {
     setObjectID(objID - 1)
   }
 
-  console.log(objID)
-
   async function getUrl() {
-    const newURL = await axios.get(`${URL}/${objID}`)
-    console.log(newURL.data.artistAlphaSort)
+    setNewURL(await axios.get(`${URL}/${objID}`))
   }
 
-  getUrl()
+  useEffect(() => {
+    getUrl()
+  }, [objID])
+
+  console.log(objID)
+  console.log(newURL)
 
   return (
   <div>
