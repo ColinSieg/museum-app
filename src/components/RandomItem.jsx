@@ -1,9 +1,10 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { randomNumber, URL } from "../globals"
+import RandomImage from "./RandomImage"
 
-const Items = (props) => {
-  const [objectIDs, setObjectIDs] = useState(null)
+const RandomItem = (props) => {
+  const [objectIDs, setObjectIDs] = useState([])
 
   async function getItems () {
     let rand = randomNumber(1,21)
@@ -21,9 +22,9 @@ const Items = (props) => {
 
   return (
     <div>
-      {objectIDs ? <p>{URL + '/' + objectIDs[randomNumber(0, objectIDs.length)]}</p> : <p>Loading...</p>}
+      {objectIDs.length > 0 ? <RandomImage objectIDs={objectIDs}/> : <p>Loading...</p>}
     </div>
   )
 }
 
-export default Items
+export default RandomItem
