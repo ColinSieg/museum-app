@@ -1,9 +1,8 @@
 import './App.css'
 import { useState } from 'react'
 import RandomItem from './components/RandomItem.jsx'
-import RandomImage from './components/RandomImage'
-import DisplayPrevious from './components/DisplayPrevious'
-import DisplayNext from './components/DisplayNext'
+import RandomImage from './components/RandomImage.jsx'
+import IncrementButton from './components/IncrementButton.jsx'
 
 function App() {
   const [displayItem, setDisplayItem] = useState(false)
@@ -14,21 +13,22 @@ function App() {
 
   return (
     <div className="App">
+      <div className="buttonContainer">
+        <button onClick={toggleItem}>
+          {displayItem ? 'Clear' : 'New'} Random Item
+        </button>
+      </div>
       <div className="itemContainer">
         {displayItem ? (
           <RandomItem displayItem={displayItem} />
         ) : (
-          'Click below for a new item'
+          'Click above for a new item'
         )}
         <RandomImage />
       </div>
-      <div className="buttonContainer">
-        <DisplayPrevious />
-        <DisplayNext />
+      <div className="inputContainer">
+        <IncrementButton />
       </div>
-      <button onClick={toggleItem}>
-        {displayItem ? 'Clear' : 'New'} Random Item
-      </button>
     </div>
   )
 }
