@@ -13,22 +13,26 @@ function App() {
 
   return (
     <div className="App">
-      <div className="buttonContainer">
-        <button onClick={toggleItem}>
-          {displayItem ? 'Clear' : 'New'} Random Item
-        </button>
+      <div className="flex-child">
+        <div className="itemContainer">
+          {displayItem ? (
+            <RandomItem displayItem={displayItem} />
+          ) : (
+            <h2>Click below to view a random item from the Met!</h2>
+          )}
+          <RandomImage />
+        </div>
+        <div className="buttonContainer">
+          <button onClick={toggleItem}>
+            {displayItem ? 'Clear' : 'New'} Random Item
+          </button>
+        </div>
       </div>
-      <div className="itemContainer">
-        {displayItem ? (
-          <RandomItem displayItem={displayItem} />
-        ) : (
-          <h2>Click above to view a random item from the Met!</h2>
-        )}
-        <RandomImage />
-      </div>
-      <h2>Or start from the beginning of the collection!</h2>
-      <div className="infoPanel">
-        <IncrementButton />
+      <div className="flex-child">
+        <h2>Or start from the beginning of the collection!</h2>
+        <div className="infoPanel">
+          <IncrementButton />
+        </div>
       </div>
     </div>
   )
