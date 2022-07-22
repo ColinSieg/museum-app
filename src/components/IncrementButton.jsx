@@ -51,10 +51,10 @@ const IncrementButton = (props) => {
     <button onClick={incUp}>Next Item</button>
     <ul>
       <li>Title: {title === '' ? 'No information available.' : title}</li>
-      <li>Artist: {artist}</li>
-      <li>Medium: {medium}</li>
-      <li>Date created: {date}</li>
-      <li>Locale: {locale}</li>
+      <li>Artist: {artist === '' ? 'No information available.' : artist}</li>
+      <li>Medium: {medium === '' ? 'No information available.' : medium}</li>
+      <li>Date created: {date === '' ? 'No information available.' : date}</li>
+      <li>Locale: {locale === '' ? 'No information available.' : locale}</li>
       <li>Link: <a href={link}>Met museum page</a></li>
     </ul>
     <img src={image} />
