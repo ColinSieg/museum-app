@@ -12,7 +12,7 @@ const RandomImage = (props) => {
   const [image, setImage] = useState('')
 
   useEffect(() => {
-    if (props.objectIDs) {
+    // if (props.objectIDs) {
       async function getImage () {
         let index = randomNumber(0, props.objectIDs.length)
         let ID = props.objectIDs[index]
@@ -26,19 +26,20 @@ const RandomImage = (props) => {
         setImage(resImg.data.primaryImageSmall)
       }
       getImage()
-    }
+    // }
   }, [props.objectIDs])
 
   return <div>
     <h2>Title: {title === '' ? 'No information available.' : title}</h2>
     <ul>
       <li>Artist: {artist === '' ? 'No information available.' : artist}</li>
-      <li>{medium === '' ? 'No information available.' : medium}</li>
-      <li>{date === '' ? 'No information available.' : date}</li>
-      <li>{locale === '' ? 'No information available.' : locale}</li>
-      <li>{link === '' ? 'No information available.' : link}</li>
+      <li>Medium: {medium === '' ? 'No information available.' : medium}</li>
+      <li>Date: {date === '' ? 'No information available.' : date}</li>
+      <li>Locale: {locale === '' ? 'No information available.' : locale}</li>
+      <li>Link: {link === '' ? 'No information available.' : link}</li>
     </ul>
-    <img src={image} alt='No image available'/></div>
+    <img src={image} alt='No image available'/>
+    </div>
 }
 
 export default RandomImage

@@ -13,7 +13,6 @@ const RandomItem = (props) => {
     }
     const res = await axios.get(`${URL}?departmentIds=${rand}`)
     setObjectIDs(res.data.objectIDs)
-    // console.log(res.data.objectIDs)
   }
 
   useEffect(() => {
